@@ -282,6 +282,13 @@ console.log(myJSON);
 	                }
 	            };
 	            var network = new vis.Network(container, data, options);
+	            
+	            												var idMap={};
+												qData.qMatrix.forEach(function(e){
+													idMap[e[0].qNum]=e[0].qElemNumber;
+-
+												});
+
 				
 				
                 // Handle Selection on 1-node
@@ -297,7 +304,7 @@ console.log(myJSON);
                             connectedNodes.push(properties.nodes[0]);
                                                    
                             //Make the selections
-                            _this.backendApi.selectValues(0,connectedNodes,false);
+                            _this.backendApi.selectValues(0, connectedNodes.map(function(e){return idMap[e]}),false);
 						}
 					}
 				});
