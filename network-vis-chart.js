@@ -328,6 +328,8 @@ function($, qlik, vis) {
                 };
                 var network = new vis.Network(container, data, options);
 
+		
+		//Mapping array between node Ids (first dimension qNum) and the related qElemNuber for selection
                 var idMap = {};
                 qData.qMatrix.forEach(function(e) {
                     idMap[e[0].qNum] = e[0].qElemNumber; 
